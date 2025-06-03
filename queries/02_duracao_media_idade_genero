@@ -1,0 +1,26 @@
+SELECT 
+gender,
+CASE 
+WHEN (2025 - birth_year) BETWEEN 18 AND 29 THEN '18-29'
+WHEN (2025 - birth_year) BETWEEN 30 AND 39 THEN '30-39'
+WHEN (2025 - birth_year) BETWEEN 40 AND 49 THEN '40-49'
+WHEN (2025 - birth_year) BETWEEN 50 AND 59 THEN '50-59'
+WHEN (2025 - birth_year) >= 60 THEN '60+'
+ELSE 'Unknown'
+END AS age_group
+FROM 
+`bigquery-public-data.new_york_citibike.citibike_trips` 
+WHERE 
+birth_year IS NOT NULL
+GROUP BY 
+gender, 
+CASE 
+WHEN (2025 - birth_year) BETWEEN 18 AND 29 THEN '18-29'
+WHEN (2025 - birth_year) BETWEEN 30 AND 39 THEN '30-39'
+WHEN (2025 - birth_year) BETWEEN 40 AND 49 THEN '40-49'
+WHEN (2025 - birth_year) BETWEEN 50 AND 59 THEN '50-59'
+WHEN (2025 - birth_year) >= 60 THEN '60+'
+ELSE 'Unknown'
+END
+ORDER BY 
+age_group, gender;
