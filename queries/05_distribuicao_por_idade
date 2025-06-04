@@ -6,4 +6,5 @@ FROM
 WHERE
 birth_year IS NOT NULL
 GROUP BY age
-ORDER BY age; 
+ORDER BY age
+LIMIT 60;
