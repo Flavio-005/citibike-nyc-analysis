@@ -1,0 +1,9 @@
+SELECT  
+(2025 - birth_year) AS age, 
+COUNT(*) AS total_users
+FROM 
+`bigquery-public-data.new_york_citibike.citibike_trips`
+WHERE
+birth_year IS NOT NULL
+GROUP BY age
+ORDER BY age; 
