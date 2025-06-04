@@ -1,0 +1,7 @@
+SELECT  
+EXTRACT(HOUR FROM starttime) AS HOUR, 
+COUNT(*) AS total
+FROM 
+`bigquery-public-data.new_york_citibike.citibike_trips`
+GROUP BY hour
+ORDER BY HOUR;
